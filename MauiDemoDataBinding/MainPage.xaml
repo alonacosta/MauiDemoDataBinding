@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiDemoDataBinding.Models"
+             x:Class="MauiDemoDataBinding.MainPage">
+
+    <!--<ContentPage.Resources>
+        <models:Product x:Key="product"
+                        Name="iPhone 5"
+                        Price="9999.99"
+                        Stock="333"/>
+    </ContentPage.Resources>-->
+
+    <ContentPage.BindingContext>
+        <models:Product x:Name="product" Name="Iphone 10"
+                        Price="5000" Stock="5"/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label x:Name="lblName"
+         Text="{Binding Source={x:Reference product}, Path=Name}"
+         FontSize="30"
+         HorizontalOptions="Center"/>   
+
+            <Label x:Name="lblPrice"
+                 Text="{Binding Source={x:Reference product}, 
+                            Path=Price,
+                            StringFormat='€ {0:F2}'}"
+     FontSize="20"
+     HorizontalOptions="Center"/>
+
+            <Label x:Name="lblStock"
+     Text="{Binding Source={x:Reference product}, 
+                Path=Stock,
+                StringFormat='Quantity: {0}'}"
+     FontSize="20"
+     HorizontalOptions="Center"/>
+
+            <!--<Label x:Name="lblName"
+                Text="{Binding Name, Source={StaticResource product}}"
+                FontSize="30"
+                HorizontalOptions="Center"/>
+
+            <Label x:Name="lblPrice"
+                Text="{Binding Price, Source={StaticResource product}}"
+                FontSize="20"
+                HorizontalOptions="Center"/>
+
+            <Label x:Name="lblStock"
+                Text="{Binding Stock, Source={StaticResource product}}"
+                FontSize="20"
+                HorizontalOptions="Center"/>-->
+
+            <!--<Label x:Name="lblName"
+                Text="Galaxy 5"
+                FontSize="30"
+                HorizontalOptions="Center"/>
+            
+            <Label x:Name="lblPrice"
+                Text="10"
+                FontSize="20"
+                HorizontalOptions="Center"/>
+            
+            <Label x:Name="lblStock"
+                Text="1"
+                FontSize="20"
+                HorizontalOptions="Center"/>-->
+
+            <!--<Button
+                x:Name="CounterBtn"
+                Text="Click to realize DataBinding"               
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />-->
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
